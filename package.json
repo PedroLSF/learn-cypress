@@ -1,5 +1,5 @@
 {
-  "name": "youtube-cypress",
+  "name": "learn-cypress",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -10,6 +10,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "cypress": "^4.1.0"
+    "cypress": "4.1"
   }
 }

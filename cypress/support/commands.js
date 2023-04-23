@@ -29,16 +29,15 @@ Cypress.Commands.add("createOng", () => {
         method: 'POST',
         url: 'http://localhost:3333/ongs',
         body: {
-            name: "Gatos queridos",
-            email: "gatos@mail.com",
-            whatsapp: "519999999999",
-            city: "Porto Alegre",
-            uf: "RS"    
+            name: "Dogs da FGA",
+            email: "pedro.fernandes@italents.com",
+            whatsapp: "62985268558",
+            city: "Gama",
+            uf: "DF"
         }
     }).then(response => {
         expect(response.body.id).is.not.null;
-        cy.log(response.body.id);
 
         Cypress.env('createdOngId', response.body.id);
-    });
+    })
 })
