@@ -41,3 +41,31 @@ Cypress.Commands.add("createOng", () => {
         Cypress.env('createdOngId', response.body.id);
     })
 })
+
+Cypress.Commands.add("createNewIncident", () => {
+    Cypress.env('createdOngId')
+    cy.request({
+        method: 'POST',
+        url: 'http://localhost:3333/incidents',
+        headers: { 'Authorization': `${ Cypress.env('createdOngId') }`, },
+        body: {
+            title: "Ração",
+            description: "Ração para os cachorrinhos da FGA",
+            value: "150"
+        }
+    }).then(response => {
+        expect(response.body.id).is.not.null;
+        cy.log(response.body.id);
+
+        Cypress.env('createdIncidentId', response.body.id);
+    });
+})
+
+Cypress.Commands.add('login', () => {
+    cy.visit('http://localhost:3000/profile', {
+            onBeforeLoad: (browser) => {
+                browser.localStorage.setItem('ongId', Cypress.env('createdOngId'));
+                browser.localStorage.setItem('ongName', 'Dogs da FGA');
+            }
+        });
+})

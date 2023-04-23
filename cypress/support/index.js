@@ -19,7 +19,7 @@ import './commands'
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
 
-before(() => {
+beforeEach(() =>{
     // Start server com cy.server()
     // cy.server() - Necessário para Route e Request
     cy.server();

@@ -1,7 +1,7 @@
 /// <reference types="cypress" />
 
 describe('Ongs', () => {
-     it('Cadastro', () => {
+    it('Cadastro', () => {
         cy.visit('http://localhost:3000/register');
         // Cy.get -> Busca o Elemento
         // .type -> Digita
@@ -32,5 +32,38 @@ describe('Ongs', () => {
         cy.visit('http://localhost:3000/');
         cy.get('input').type(Cypress.env('createdOngId'));
         cy.get('.button').click();
+    });
+    it('Logout', () => {
+        cy.login();
+        cy.get('button').click();
+    });
+    it('Cadastro de Novos Casos', () => {
+        cy.login();
+        cy.get('.button').click();
+        cy.get('[placeholder="Título do caso"]').type('Ração');
+        cy.get('textarea').type('Animais presenten na FGA precisam de ração');
+        cy.get('[placeholder="Valor em reais"]').type('150');
+
+        //
+        cy.route('POST', '**/incidents').as('newIncident');
+
+        cy.get('.button').click();
+
+        cy.wait('@newIncident').then((xhr) => {
+            expect(xhr.status).to.eq(200);
+            expect(xhr.response.body).has.property('id');
+            expect(xhr.response.body.id).is.not.null;
+        })
+    });
+    it('Excluir um caso', () => {
+        cy.createNewIncident();
+        cy.login();
+
+        cy.route('DELETE', '**/incidents/*').as('deleteIncident');
+        cy.get('li > button > svg').click();
+        cy.wait('@deleteIncident').then((xhr) => {
+            expect(xhr.status).to.eq(204);
+            expect(xhr.response.body).to.be.empty;
+        })
     });
 });
