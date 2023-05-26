@@ -1,0 +1,6 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Apr 27 18:57:05 BRT 2023","Thu Apr 27 18:57:06 BRT 2023","473","","Ongs","","","","deve poder excluir um caso",""
+"passed","Thu Apr 27 18:56:59 BRT 2023","Thu Apr 27 18:57:03 BRT 2023","3975","","Ongs","","","","devem poder realizar um cadastro",""
+"passed","Thu Apr 27 18:57:03 BRT 2023","Thu Apr 27 18:57:03 BRT 2023","654","","Ongs","","","","deve poder realizar um login no sistema",""
+"passed","Thu Apr 27 18:57:03 BRT 2023","Thu Apr 27 18:57:04 BRT 2023","477","","Ongs","","","","deve poder realizar logout no sistema",""
+"passed","Thu Apr 27 18:57:04 BRT 2023","Thu Apr 27 18:57:05 BRT 2023","1488","","Ongs","","","","deve poder cadastrar novos casos",""
