@@ -14,14 +14,10 @@
 // ***********************************************************
 
 // Import commands.js using ES2015 syntax:
-import './commands'
+import "./commands";
 
 // Alternatively you can use CommonJS syntax:
 // require('./commands')
-
-
-// Init do cy.server utilizado para routing
 before(() => {
-    cy.server();
-    cy.createOng();
+  cy.createOng();
 });

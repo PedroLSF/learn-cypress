@@ -1,6 +1,6 @@
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes');
+const express = require("express");
+const cors = require("cors");
+const routes = require("./routes");
 const app = express();
 
 // cors é o modulo de seguranca
@@ -11,8 +11,7 @@ app.use(express.json());
 //importante ser depois da linha acima
 app.use(routes);
 
-app.listen(3333);
-
+app.listen(8000);
 
 /**
  * BTW: estou no min 40 - Migrations knex
